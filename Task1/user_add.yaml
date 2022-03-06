@@ -1,5 +1,5 @@
 ---
-- name: Add 5 users to hosts to user-group
+- name: Add 4 users to hosts to user-group
   hosts: nodes
   gather_facts: true
   become: true
