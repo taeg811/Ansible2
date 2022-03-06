@@ -1,0 +1,27 @@
+---
+- name: Add 5 users to hosts to user-group
+  hosts: nodes
+  gather_facts: true
+  become: true
+  vars_files: 
+    - secretus.yaml
+  
+  tasks:
+
+  - name: Add several users to hostgroup with loop from file
+    user:
+      name: "{{ item.user }}"
+      comment: Ansible-generated user
+      groups: users
+      password: "{{ item.passw | password_hash('sha512') }}"
+      update_password: on_create
+      state: present
+      append: yes
+    loop: "{{ secretusy }}"
+    loop_control:
+      pause: 5
+    no_log: true
+
+
+  
+
