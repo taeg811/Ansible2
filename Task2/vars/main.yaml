@@ -1,5 +1,4 @@
 mysql_port: 3306
-root_pass: Reprinotest1
 db_user: ansible_user
 db_password: Timurovchy2
 db_name: ansible_db
